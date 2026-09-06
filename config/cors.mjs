@@ -1,6 +1,7 @@
 const allowedOrigins = [
     "http://localhost:5173",   // React dev server (Vite default)
-    "http://localhost:3000",   // in case you use CRA instead
+    "http://localhost:3000",
+    "https://keep-frontend.vercel.app",   // in case you use CRA instead
 ]
 
 const corsOptions = {

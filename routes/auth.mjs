@@ -1,0 +1,10 @@
+import {verifyEmail} from "../controllers/authController.mjs";
+import express from "express";
+import { login,refreshAccessToken,logout,resendVerification } from "../controllers/authController.mjs";
+const authRouter = express.Router();
+authRouter.post("/login", login);
+authRouter.post("/resend-verification",resendVerification);
+authRouter.post("/refresh", refreshAccessToken);
+authRouter.post("/logout", logout);
+authRouter.get("/verify-email/:token", verifyEmail);
+export default authRouter;

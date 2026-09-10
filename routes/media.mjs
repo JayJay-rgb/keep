@@ -6,7 +6,7 @@ import verifyJwt from "../middleware/verifyJwt.mjs";
 import {
     runDuplicateDetection,
     runAutoTagging,
-    getWeeklyEmotionAwards,
+    getDailyEmotionAwards,
     runFaceRecognition,
 } from "../controllers/media/aiAnalysis.mjs";
 
@@ -21,7 +21,7 @@ mediaRouter.get("/album/:albumId/export", verifyJwt, exportAlbum);
 mediaRouter.get("/group/:groupId/memory-of-week", verifyJwt, memoryOfTheWeek);
 mediaRouter.post("/album/:albumId/detect-duplicates", verifyJwt, runDuplicateDetection);
 mediaRouter.post("/:mediaId/auto-tag", verifyJwt, runAutoTagging);
-mediaRouter.get("/group/:groupId/emotion-awards", verifyJwt, getWeeklyEmotionAwards);
+mediaRouter.get("/group/:groupId/emotion-awards", verifyJwt, getDailyEmotionAwards);
 mediaRouter.post("/:mediaId/recognize-faces", verifyJwt, runFaceRecognition);
 
 export default mediaRouter;

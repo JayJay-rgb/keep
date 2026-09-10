@@ -61,16 +61,19 @@ export const runAutoTagging = async (req, res) => {
 };
 
 // Weekly emotion awards for a group
-export const getWeeklyEmotionAwards = async (req, res) => {
+export const getDailyEmotionAwards = async (req, res) => {
     try {
         const { groupId } = req.params;
-        const sevenDaysAgo = new Date();
-        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+        // const sevenDaysAgo = new Date();
+        // sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+        const oneDayAgo = new Date();
+        oneDayAgo.setDate(oneDayAgo.getMinutes() - 1);
 
         const mediaItems = await Media.find({
             group: groupId,
             type: "image",
-            createdAt: { $gte: sevenDaysAgo },
+            createdAt: { $gte: oneDayAgo },
         });
 
         const emotionResults = [];

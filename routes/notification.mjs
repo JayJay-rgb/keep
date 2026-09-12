@@ -6,5 +6,6 @@ const notificationRouter = express.Router();
 
 notificationRouter.get("/", verifyJwt, getNotifications);
 notificationRouter.patch("/:notificationId/read", verifyJwt, markAsRead);
+notificationRouter.delete("/:notificationId", verifyJwt, deleteNotification);
 
 export default notificationRouter;
